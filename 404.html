@@ -26,6 +26,14 @@
         return;
       }
 
+      // Check for chained-timers
+      var timerMatch = pathname.match(/^\/chained-timers(?:\/(.*))?$/i);
+      if (timerMatch) {
+        var sub = timerMatch[1] ? timerMatch[1] : '';
+        window.location.replace("https://chainedtimers.github.io/" + sub + search + hash);
+        return;
+      }
+
       // Fallback redirect to primary personal website
       window.location.replace("https://www.erwinmayer.com/" + search + hash);
     })();
