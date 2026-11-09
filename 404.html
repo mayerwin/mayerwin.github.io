@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function() {
+      var pathname = window.location.pathname;
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+
+      // Check for sonora-live
+      var sonoraMatch = pathname.match(/^\/sonora-live(?:\/(.*))?$/i);
+      if (sonoraMatch) {
+        var sub = sonoraMatch[1] ? sonoraMatch[1] : '';
+        window.location.replace("https://sonora-live.github.io/" + sub + search + hash);
+        return;
+      }
+
+      // Check for tidesight
+      var tideMatch = pathname.match(/^\/tidesight(?:\/(.*))?$/i);
+      if (tideMatch) {
+        var sub = tideMatch[1] ? tideMatch[1] : '';
+        window.location.replace("https://tidesight-analytics.github.io/" + sub + search + hash);
+        return;
+      }
+
+      // Fallback redirect to primary personal website
+      window.location.replace("https://www.erwinmayer.com/" + search + hash);
+    })();
+  </script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    .card { background: #1e293b; padding: 2rem; border-radius: 12px; max-width: 480px; text-align: center; border: 1px solid #334155; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    h2 { font-size: 1.3rem; margin-top: 0; margin-bottom: 0.5rem; }
+    p { margin-bottom: 0; color: #94a3b8; }
+    a { color: #38bdf8; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Page Moved</h2>
+    <p>Redirecting to the new site location...</p>
+    <p style="margin-top: 1rem;"><small>If you are not redirected automatically, visit <a href="https://www.erwinmayer.com/">www.erwinmayer.com</a>.</small></p>
+  </div>
+</body>
+</html>
