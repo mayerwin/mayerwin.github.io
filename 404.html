@@ -34,6 +34,15 @@
         return;
       }
 
+      // Check for Boom Buds (the game page itself is Boom-Buds/index.html, which also carries the saved settings over)
+      var boomMatch = pathname.match(/^\/boom-buds(?:\/(.*))?$/i);
+      if (boomMatch) {
+        var sub = boomMatch[1] ? boomMatch[1] : '';
+        if (sub === '' || sub === 'index.html') { window.location.replace('/Boom-Buds/' + search + hash); return; }
+        window.location.replace("https://boom-buds.github.io/" + sub + search + hash);
+        return;
+      }
+
       // Fallback redirect to primary personal website
       window.location.replace("https://www.erwinmayer.com/" + search + hash);
     })();
